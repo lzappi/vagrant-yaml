@@ -1,3 +1,3 @@
 # vagrant-poc1
 
-Codice per creare un ambiente multinodo con Ubuntu 16.04.01
+Codice er creare con Vagrant un ambiente multinodo con Ubuntu 16.04.01
