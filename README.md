@@ -16,9 +16,9 @@ In *server.yaml' you need to specify at least:
  * cpu
  * networks (can be private or public. If public you also need to specify the bridge adapter).
  
-You can copy *server.yaml.example* into server.yaml in the same directory of Vagrant and editing it as for your requirements.
+You can copy `server.yaml.example` into `server.yaml` in the same directory of Vagrant and editing it as for your requirements.
 
-Below is an example of a two node environment: node1 has ubuntu 16.04, 2048 MB RAM, 2 CPUs, two public networks and one private network; node2 is a ubuntu 14.04, 1024 GB RAM, 1 cpu and one public network.
+Below is an example of a two node environment: node1 is a server with ubuntu 16.04, 2048 MB RAM, 2 CPUs, two public networks and one private network; node2 is a ubuntu 14.04, 1024 GB RAM, 1 cpu and one public network.
 
 ```ruby
 - name: node1
