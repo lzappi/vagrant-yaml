@@ -1,0 +1,30 @@
+- name: node1
+  box: bento/ubuntu-16.04
+  ram: "2048"
+  cpu: "2"
+  networks:
+    - network: "cloud-in-mgmt"
+      type: public_network
+      bridge: eno1
+      ip: "172.22.141.101"
+      netmask: "255.255.255.0"
+    - network: "public-net"
+      type: public_network
+      bridge: eno2
+      ip: "172.22.140.101"
+      netmask: "255.255.255.0"
+    - network: "cloud-mgmt"
+      type: private_network
+      ip: "10.20.0.101"
+      netmask: "255.255.255.0"
+      
+- name: node2
+  box: bento/ubuntu-16.04
+  ram: "2048"
+  cpu: "2"
+  networks:
+    - network: "cloud-in-mgmt"
+      type: public_network
+      bridge: eno1
+      ip: "172.22.141.102"
+      netmask: "255.255.255.0"
