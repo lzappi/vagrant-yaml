@@ -18,6 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   servers.each do |s|
     config.vm.define s["name"] do |srv|
       srv.vm.box = s["box"]
+      srv.vm.hostname = s["name"]
       s["networks"].each do |n|
         if n["type"] == "public_network"
 	  srv.vm.network "public_network", bridge: n["bridge"], ip: n["ip"], netmask: n["netmask"]
@@ -26,7 +27,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	end
       end
       srv.vm.provider "virtualbox" do |vb|
-        vb.name = s["name"]
         vb.memory = s["ram"]
 	vb.cpus = s["cpu"]  
         vb.customize ["modifyvm", :id, "--cableconnected1", "on"]
