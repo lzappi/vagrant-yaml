@@ -2,21 +2,23 @@
 
 This Vagrantfile works with an external data file (a YAML file, named servers.yaml) to create multiple Vagrant boxes easily. 
 
-The servers.yaml file contains all the specifics and can be easily edited to change the number and type of boxes to create. 
+The servers.yaml file contains all the specifics (box,hostname, RAM, CPU, networks) and can be easily edited to change the number and type of boxes to create. 
 
-The Vagrantfile remains unchanged. 
+The Vagrantfile remains unchanged.
+
 It supports multiple private and public networks with Virtualbox as provider.
+
 In *server.yaml' you need to specify at least:
 
  * name (hostname)
  * box (image)
  * ram
  * cpu
- * networks (can be private or public. If public you need to specify the bridge adapter)
+ * networks (can be private or public. If public you also need to specify the bridge adapter).
  
-You can copy *server.yaml.example* into server.yaml and editing as for your requirements.
+You can copy *server.yaml.example* into server.yaml in the same directory of Vagrant and editing it as for your requirements.
 
-Below is an example of a two node environment: node1 has is ubuntu 16.04, 2048 MB RAM, 2 CPUs, two public networks and one private network; node2 is a ubuntu 14.04, 1024 GB RAM, 1 cpu and one public network.
+Below is an example of a two node environment: node1 has ubuntu 16.04, 2048 MB RAM, 2 CPUs, two public networks and one private network; node2 is a ubuntu 14.04, 1024 GB RAM, 1 cpu and one public network.
 
 ```ruby
 - name: node1
@@ -53,4 +55,4 @@ Below is an example of a two node environment: node1 has is ubuntu 16.04, 2048 M
  
 Enjoy and good vagrant
  
-Lorenzo  
+Lorenzo
