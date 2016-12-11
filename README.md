@@ -18,7 +18,7 @@ You can copy *server.yaml.example* into server.yaml and editing as for your requ
 
 Below is an example of a two node environment: node1 has is ubuntu 16.04, 2048 MB RAM, 2 CPUs, two public networks and one private network; node2 is a ubuntu 14.04, 1024 GB RAM, 1 cpu and one public network.
 
-'''
+```ruby
 - name: node1
   box: bento/ubuntu-16.04
   ram: "2048"
@@ -49,7 +49,7 @@ Below is an example of a two node environment: node1 has is ubuntu 16.04, 2048 M
       bridge: eno1
       ip: "172.22.141.102"
       netmask: "255.255.255.0"
-'''
+```
  
 Enjoy and good vagrant
  
