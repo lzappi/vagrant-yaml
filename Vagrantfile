@@ -18,7 +18,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   servers.each do |s|
     config.vm.define s["name"] do |srv|
       srv.vm.box = s["box"]
+      srv.vm.box_version = s["box_version"]
       srv.vm.hostname = s["name"]
+      srv.vm.network "forwarded_port", guest: 22, host: s["ssh_port"]
       s["networks"].each do |n|
         if n["type"] == "public_network"
 	  srv.vm.network "public_network", bridge: n["bridge"], ip: n["ip"], netmask: n["netmask"]
