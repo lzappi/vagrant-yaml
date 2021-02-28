@@ -28,3 +28,7 @@
       bridge: eno1
       ip: "172.22.141.102"
       netmask: "255.255.255.0"
+  synced:
+    - src: "D:\\vagrant\\iwm\\src"
+      dst: "/vagrant"
+      type: "virtualbox"

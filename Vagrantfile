@@ -23,14 +23,21 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       srv.vm.network "forwarded_port", guest: 22, host: s["ssh_port"]
       s["networks"].each do |n|
         if n["type"] == "public_network"
-	  srv.vm.network "public_network", bridge: n["bridge"], ip: n["ip"], netmask: n["netmask"]
-	else
-	  srv.vm.network "private_network", ip: n["ip"], netmask: n["netmask"]
-	end
+          srv.vm.network "public_network", bridge: n["bridge"], ip: n["ip"], netmask: n["netmask"]
+        else
+          srv.vm.network "private_network", ip: n["ip"], netmask: n["netmask"]
+        end
+      end
+      if s["synced"] == ""
+        srv.vm.synced_folder ".", "/vagrant" , type: "rsync"
+      else
+        s["synced"].each do |f|
+          srv.vm.synced_folder f["src"], f["dst"], type: f["type"]
+        end
       end
       srv.vm.provider "virtualbox" do |vb|
         vb.memory = s["ram"]
-	vb.cpus = s["cpu"]  
+        vb.cpus = s["cpu"]  
         vb.customize ["modifyvm", :id, "--cableconnected1", "on"]
       end
     end
